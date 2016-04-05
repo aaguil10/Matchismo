@@ -7,22 +7,26 @@
 //
 
 #import "ViewController.h"
+#import "PlayingCardDeck.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (nonatomic) int flipCount;
-@property (strong, nonatomic) PlayingCardDeck *myDeck;
-@property (strong, nonatomic) PlayingCard *currentCard;
+@property (strong, nonatomic) Deck *myDeck;
 
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad{
-    [super viewDidLoad];
+- (Deck *) myDeck{
     if(!_myDeck){
-       _myDeck = [[PlayingCardDeck alloc] init];
+        _myDeck = [self createDeck];
     }
+    return _myDeck;
+}
+
+- (Deck *) createDeck{
+    return [[PlayingCardDeck alloc] init];
 }
 
 - (void) setFlipCount:(int)flipCount{
@@ -36,15 +40,16 @@
         [sender setBackgroundImage:[UIImage imageNamed:@"cardback.png"]
                           forState:UIControlStateNormal];
         [sender setTitle:@"" forState:UIControlStateNormal];
+        self.flipCount++;
     }else{
-        [sender setBackgroundImage:[UIImage imageNamed:@"cardfront.png"]
+        Card *currentCard = [self.myDeck drawRandomCard];
+        if(currentCard){
+            [sender setBackgroundImage:[UIImage imageNamed:@"cardfront.png"]
                           forState:UIControlStateNormal];
-        _currentCard = (PlayingCard*)[_myDeck drawRandomCard];
-        NSString *rankString = [@([_currentCard rank]) stringValue];
-        NSString *cardString = [[_currentCard suit] stringByAppendingString:rankString];
-        [sender setTitle:cardString forState:UIControlStateNormal];
+            [sender setTitle:currentCard.contents forState:UIControlStateNormal];
+            self.flipCount++;
+        }
     }
-    self.flipCount++;
 }
 
 
