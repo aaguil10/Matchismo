@@ -70,14 +70,23 @@ static const int COST_TO_CHOOSE = 1;
             card.chosen = YES;
         }
     }
-    
-    
-    
-    
-    
-    
 }
 
+- (void) redealCards:(NSUInteger)count withDeck:(Deck *)deck{
+    self.cards = [[NSMutableArray alloc] init];
+    for(int i = 0; i < count; i++){
+        Card *card = [deck drawRandomCard];
+        if(card){
+            card.matched = NO;
+            card.chosen = NO;
+            [self.cards addObject:card];
+        }else{
+            NSLog(@"%@",@"ran out of cards!");
+            break;
+        }
+    }
+    self.score = 0;
+}
 
 
 

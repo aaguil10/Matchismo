@@ -14,6 +14,7 @@
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UIButton *redealButton;
 
 @end
 
@@ -36,6 +37,13 @@
     [self.game chooseCardAtIndex:chosenButtonIndex];
     [self updateUI];
 }
+
+- (IBAction)touchRedealButton:(id)sender {
+    self.scoreLabel.text = @"Re-dealing cards!";
+    [self.game redealCards:12 withDeck:[self createDeck]];
+    [self updateUI];
+}
+
 
 - (void)updateUI{
     for(UIButton *cardButton in self.cardButtons){
