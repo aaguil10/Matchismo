@@ -10,6 +10,7 @@
 		969B57F71CADFE33002B18AA /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 969B57F61CADFE33002B18AA /* PlayingCard.m */; };
 		969B57FA1CAE062F002B18AA /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 969B57F91CAE062F002B18AA /* Deck.m */; };
 		969B57FD1CAE0B51002B18AA /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 969B57FC1CAE0B51002B18AA /* PlayingCardDeck.m */; };
+		96AA0D371CB5DAD900054BB9 /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 96AA0D361CB5DAD900054BB9 /* CardMatchingGame.m */; };
 		96AAE6D81CAAE5B2008D9CAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96AAE6D71CAAE5B2008D9CAA /* main.m */; };
 		96AAE6DB1CAAE5B2008D9CAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96AAE6DA1CAAE5B2008D9CAA /* AppDelegate.m */; };
 		96AAE6DE1CAAE5B2008D9CAA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96AAE6DD1CAAE5B2008D9CAA /* ViewController.m */; };
@@ -46,6 +47,8 @@
 		969B57F91CAE062F002B18AA /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
 		969B57FB1CAE0B51002B18AA /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardDeck.h; sourceTree = "<group>"; };
 		969B57FC1CAE0B51002B18AA /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
+		96AA0D351CB5DAD900054BB9 /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMatchingGame.h; path = Model/CardMatchingGame.h; sourceTree = "<group>"; };
+		96AA0D361CB5DAD900054BB9 /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMatchingGame.m; path = Model/CardMatchingGame.m; sourceTree = "<group>"; };
 		96AAE6D31CAAE5B2008D9CAA /* Matchismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matchismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96AAE6D71CAAE5B2008D9CAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		96AAE6D91CAAE5B2008D9CAA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 		96AAE70E1CAC3B60008D9CAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				96AA0D351CB5DAD900054BB9 /* CardMatchingGame.h */,
+				96AA0D361CB5DAD900054BB9 /* CardMatchingGame.m */,
 				969B57F81CAE062F002B18AA /* Deck.h */,
 				969B57F91CAE062F002B18AA /* Deck.m */,
 				96AAE70F1CAC3BAA008D9CAA /* Card.h */,
@@ -238,6 +243,7 @@
 				TargetAttributes = {
 					96AAE6D21CAAE5B1008D9CAA = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = JQEM2Q65DT;
 					};
 					96AAE6EE1CAAE5B2008D9CAA = {
 						CreatedOnToolsVersion = 7.3;
@@ -304,6 +310,7 @@
 				969B57F71CADFE33002B18AA /* PlayingCard.m in Sources */,
 				969B57FD1CAE0B51002B18AA /* PlayingCardDeck.m in Sources */,
 				969B57FA1CAE062F002B18AA /* Deck.m in Sources */,
+				96AA0D371CB5DAD900054BB9 /* CardMatchingGame.m in Sources */,
 				96AAE6DE1CAAE5B2008D9CAA /* ViewController.m in Sources */,
 				96AAE6DB1CAAE5B2008D9CAA /* AppDelegate.m in Sources */,
 				96AAE6D81CAAE5B2008D9CAA /* main.m in Sources */,
@@ -449,10 +456,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Matchismo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pollo.Matchismo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -460,10 +470,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Matchismo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pollo.Matchismo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
