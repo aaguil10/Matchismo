@@ -23,6 +23,7 @@
 
 - (instancetype)initWithCardCount:(NSInteger)count usingDeck:(Deck *)deck{
     self = [super init];
+    self.gameMode = NO;
     if(self){
         for(int i = 0; i < count; i++){
             Card *card = [deck drawRandomCard];
@@ -51,19 +52,42 @@ static const int COST_TO_CHOOSE = 1;
         if(card.isChossen){
             card.chosen = NO;
         }else{
-            //match aganst other chossen cards
+            NSMutableArray *chossenCards = [[NSMutableArray alloc] init];
             for(Card *otherCard in self.cards){
                 if(otherCard.isChossen && !otherCard.isMatched){
-                    int matchScore = [card match:@[otherCard]];
+                    [chossenCards addObject:otherCard];
+                }
+            }
+            if(self.gameMode){ //3 card game mode logic
+                if([chossenCards count] == 2){
+                    Card *card1 = chossenCards[0];
+                    Card *card2 = chossenCards[1];
+                    int matchScore = [card match:chossenCards];
                     if(matchScore){
                         self.score += matchScore * MATCH_BONUS;
-                        otherCard.matched = YES;
+                        card1.matched = YES;
+                        card2.matched = YES;
                         card.matched = YES;
                     }else{
                         self.score -= MISMATCH_PENALTY;
-                        otherCard.chosen = NO;
+                        card1.chosen = NO;
+                        card2.chosen = NO;
                     }
-                    break; //can only choose 2 cards for now
+                }
+            }else{  //2 Card game mode logic
+                if([chossenCards count] == 1){
+                    Card *otherCard = chossenCards[0];
+                    if(otherCard.isChossen && !otherCard.isMatched){
+                        int matchScore = [card match:@[otherCard]];
+                        if(matchScore){
+                            self.score += matchScore * MATCH_BONUS;
+                            otherCard.matched = YES;
+                            card.matched = YES;
+                        }else{
+                            self.score -= MISMATCH_PENALTY;
+                            otherCard.chosen = NO;
+                        }
+                    }
                 }
             }
             self.score -= COST_TO_CHOOSE;
@@ -88,6 +112,18 @@ static const int COST_TO_CHOOSE = 1;
     self.score = 0;
 }
 
+
+
+- (void) setGameMode:(BOOL)gmValue{
+    if(gmValue){
+        _gameMode = NO;
+        NSLog(@"%@", @"Set to 2 card mode");
+    }else{
+        _gameMode = YES;
+        NSLog(@"%@", @"Set to 3 card mode");
+    }
+    
+}
 
 
 

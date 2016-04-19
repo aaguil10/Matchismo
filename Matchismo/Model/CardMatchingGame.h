@@ -17,7 +17,9 @@
 - (void) chooseCardAtIndex: (NSUInteger) index;
 - (Card *) cardAtIndex:(NSUInteger) index;
 - (void) redealCards:(NSUInteger)count withDeck:(Deck *) deck;
+- (void) setGameMode: (BOOL) gmValue; //1 = 3 card  0 = 2 card
 
+@property (nonatomic) BOOL gameMode; // NO = 2 card YES = 3 card game
 @property (nonatomic, readonly) NSInteger score;
 
 

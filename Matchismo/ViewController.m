@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UIButton *redealButton;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *gameModeSegmentControl;
 
 @end
 
@@ -44,6 +45,12 @@
     [self updateUI];
 }
 
+- (IBAction)touchGameModeSement:(id)sender {
+    //self.scoreLabel.text = @"touched Game mode!";
+    //NSLog(@"seg: %ld", (long)self.gameModeSegmentControl.selectedSegmentIndex);
+    BOOL mode = self.gameModeSegmentControl.selectedSegmentIndex;
+    [self.game setGameMode: !mode];
+}
 
 - (void)updateUI{
     for(UIButton *cardButton in self.cardButtons){
