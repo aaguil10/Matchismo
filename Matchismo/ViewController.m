@@ -37,12 +37,14 @@
     int chosenButtonIndex = (int)[self.cardButtons indexOfObject:sender];
     [self.game chooseCardAtIndex:chosenButtonIndex];
     [self updateUI];
+    [self enableGameMode:NO];
 }
 
 - (IBAction)touchRedealButton:(id)sender {
     self.scoreLabel.text = @"Re-dealing cards!";
     [self.game redealCards:12 withDeck:[self createDeck]];
     [self updateUI];
+    [self enableGameMode:YES];
 }
 
 - (IBAction)touchGameModeSement:(id)sender {
@@ -70,6 +72,11 @@
 
 -(UIImage *)backgroundImageForCard:(Card *) card{
     return [UIImage imageNamed:card.isChossen ? @"cardfront.png":@"cardback.png"];
+}
+
+-(void) enableGameMode: (BOOL) enable{
+    [_gameModeSegmentControl setEnabled:enable forSegmentAtIndex:0];
+    [_gameModeSegmentControl setEnabled:enable forSegmentAtIndex:1];
 }
 
 
