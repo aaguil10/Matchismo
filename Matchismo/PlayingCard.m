@@ -12,13 +12,17 @@
 
 - (int)match:(NSArray *)otherCards{
     int score = 0;
+    self.matchReason = self.contents;
     for(PlayingCard *otherCard in otherCards){
         if(otherCard.rank == self.rank){
             score = 4;
+            self.matchReason = [NSString stringWithFormat:@"%@ %@", self.matchReason, otherCard.contents];
         }else if([otherCard.suit isEqualToString:self.suit]){
             score = 1;
+            self.matchReason = [NSString stringWithFormat:@"%@ %@", self.matchReason, otherCard.contents];
         }
     }
+    self.matchReason = [NSString stringWithFormat:@"%@ matched", self.matchReason];
     return score;
 }
 

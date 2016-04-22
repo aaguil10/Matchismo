@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UIButton *redealButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *gameModeSegmentControl;
+@property (weak, nonatomic) IBOutlet UILabel *gameStatusLabel;
 
 @end
 
@@ -41,10 +42,10 @@
 }
 
 - (IBAction)touchRedealButton:(id)sender {
-    self.scoreLabel.text = @"Re-dealing cards!";
+    //self.scoreLabel.text = @"Re-dealing cards!";
     [self.game redealCards:12 withDeck:[self createDeck]];
-    [self updateUI];
     [self enableGameMode:YES];
+    [self updateUI];
 }
 
 - (IBAction)touchGameModeSement:(id)sender {
@@ -52,6 +53,7 @@
     //NSLog(@"seg: %ld", (long)self.gameModeSegmentControl.selectedSegmentIndex);
     BOOL mode = self.gameModeSegmentControl.selectedSegmentIndex;
     [self.game setGameMode: !mode];
+    [self updateUI];
 }
 
 - (void)updateUI{
@@ -63,7 +65,8 @@
         cardButton.enabled = !card.isMatched;
         self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", (int)self.game.score];
     }
-    
+    self.gameStatusLabel.text = @"";
+    self.gameStatusLabel.text = self.game.gameStatus;
 }
 
 -(NSString *)titleForCard:(Card *)card{

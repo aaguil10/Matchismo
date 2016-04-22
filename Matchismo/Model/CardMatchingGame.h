@@ -21,6 +21,7 @@
 
 @property (nonatomic) BOOL gameMode; // NO = 2 card YES = 3 card game
 @property (nonatomic, readonly) NSInteger score;
+@property (nonatomic, readonly) NSString* gameStatus;
 
 
 @end
