@@ -21,6 +21,7 @@
 		96AAE6F41CAAE5B2008D9CAA /* MatchismoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 96AAE6F31CAAE5B2008D9CAA /* MatchismoTests.m */; };
 		96AAE6FF1CAAE5B2008D9CAA /* MatchismoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 96AAE6FE1CAAE5B2008D9CAA /* MatchismoUITests.m */; };
 		96AAE7111CAC3BAA008D9CAA /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 96AAE7101CAC3BAA008D9CAA /* Card.m */; };
+		96B2FD0D1CD67D5F003F3132 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B2FD0C1CD67D5F003F3132 /* SetViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		96AAE7001CAAE5B2008D9CAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96AAE70F1CAC3BAA008D9CAA /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = Model/Card.h; sourceTree = "<group>"; };
 		96AAE7101CAC3BAA008D9CAA /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = Model/Card.m; sourceTree = "<group>"; };
+		96B2FD0B1CD67D5F003F3132 /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
+		96B2FD0C1CD67D5F003F3132 /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				96AAE6DD1CAAE5B2008D9CAA /* ViewController.m */,
 				969B57F51CADFE33002B18AA /* PlayingCard.h */,
 				969B57F61CADFE33002B18AA /* PlayingCard.m */,
+				96B2FD0B1CD67D5F003F3132 /* SetViewController.h */,
+				96B2FD0C1CD67D5F003F3132 /* SetViewController.m */,
 				969B57FB1CAE0B51002B18AA /* PlayingCardDeck.h */,
 				969B57FC1CAE0B51002B18AA /* PlayingCardDeck.m */,
 				96AAE6DF1CAAE5B2008D9CAA /* Main.storyboard */,
@@ -310,6 +315,7 @@
 				969B57F71CADFE33002B18AA /* PlayingCard.m in Sources */,
 				969B57FD1CAE0B51002B18AA /* PlayingCardDeck.m in Sources */,
 				969B57FA1CAE062F002B18AA /* Deck.m in Sources */,
+				96B2FD0D1CD67D5F003F3132 /* SetViewController.m in Sources */,
 				96AA0D371CB5DAD900054BB9 /* CardMatchingGame.m in Sources */,
 				96AAE6DE1CAAE5B2008D9CAA /* ViewController.m in Sources */,
 				96AAE6DB1CAAE5B2008D9CAA /* AppDelegate.m in Sources */,
