@@ -16,7 +16,7 @@
 }
 
 -(NSString *)contents{
-    return @"■▴▴";
+    return @"";
 }
 
 
@@ -55,7 +55,7 @@
 }
 
 - (void)setNumber:(int)number{
-    if(number < 3){
+    if(number <= 3){
         _number = number;
     }
 }

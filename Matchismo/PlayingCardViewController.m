@@ -21,16 +21,20 @@
         @try{
             int cardButtonIndex = (int)[self.cardButtons indexOfObject:cardButton];
             Card *card = [self.game cardAtIndex:cardButtonIndex];
+            [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
             [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
         }@catch (NSException * e) {
             NSLog(@"Exception: %@", e);
         }
     }
-    
 }
 
 -(UIImage *)backgroundImageForCard:(Card *) card{
     return [UIImage imageNamed:card.isChossen ? @"cardfront.png":@"cardback.png"];
+}
+
+-(NSString *)titleForCard:(Card *)card{
+    return card.isChossen ? card.contents : @"";
 }
 
 

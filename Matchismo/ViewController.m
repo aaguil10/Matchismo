@@ -20,6 +20,11 @@
 
 @implementation ViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self updateUI];
+}
+
 - (CardMatchingGame *) game{
     if(!_game){
         _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
@@ -57,7 +62,6 @@
         @try{
             int cardButtonIndex = (int)[self.cardButtons indexOfObject:cardButton];
             Card *card = [self.game cardAtIndex:cardButtonIndex];
-            [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
             //[cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
             cardButton.enabled = !card.isMatched;
             self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", (int)self.game.score];
@@ -67,10 +71,6 @@
     }
     self.gameStatusLabel.text = @"";
     self.gameStatusLabel.text = self.game.gameStatus;
-}
-
--(NSString *)titleForCard:(Card *)card{
-    return card.isChossen ? card.contents : @"";
 }
 
 
