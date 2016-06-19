@@ -7,12 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "PlayingCardDeck.h"
-#import "CardMatchingGame.h"
 
 @interface ViewController ()
-@property (strong, nonatomic) CardMatchingGame *game;
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+//@property (strong, nonatomic) CardMatchingGame *game;
+//@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UIButton *redealButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *gameModeSegmentControl;
@@ -30,8 +28,8 @@
     return _game;
 }
 
-- (Deck *) createDeck{
-    return [[PlayingCardDeck alloc] init];
+- (Deck *) createDeck{ //abstract
+    return nil;
 }
 
 - (IBAction)touchCardButton:(UIButton *)sender {
@@ -49,8 +47,6 @@
 }
 
 - (IBAction)touchGameModeSement:(id)sender {
-    //self.scoreLabel.text = @"touched Game mode!";
-    //NSLog(@"seg: %ld", (long)self.gameModeSegmentControl.selectedSegmentIndex);
     BOOL mode = self.gameModeSegmentControl.selectedSegmentIndex;
     [self.game setGameMode: !mode];
     [self updateUI];
@@ -58,12 +54,16 @@
 
 - (void)updateUI{
     for(UIButton *cardButton in self.cardButtons){
-        int cardButtonIndex = (int)[self.cardButtons indexOfObject:cardButton];
-        Card *card = [self.game cardAtIndex:cardButtonIndex];
-        [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
-        [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
-        cardButton.enabled = !card.isMatched;
-        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", (int)self.game.score];
+        @try{
+            int cardButtonIndex = (int)[self.cardButtons indexOfObject:cardButton];
+            Card *card = [self.game cardAtIndex:cardButtonIndex];
+            [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
+            //[cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
+            cardButton.enabled = !card.isMatched;
+            self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", (int)self.game.score];
+        }@catch (NSException * e) {
+            NSLog(@"Exception: %@", e);
+        }
     }
     self.gameStatusLabel.text = @"";
     self.gameStatusLabel.text = self.game.gameStatus;
@@ -73,9 +73,6 @@
     return card.isChossen ? card.contents : @"";
 }
 
--(UIImage *)backgroundImageForCard:(Card *) card{
-    return [UIImage imageNamed:card.isChossen ? @"cardfront.png":@"cardback.png"];
-}
 
 -(void) enableGameMode: (BOOL) enable{
     [_gameModeSegmentControl setEnabled:enable forSegmentAtIndex:0];

@@ -6,8 +6,8 @@
 //  Copyright © 2016 PolloStudios. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ViewController.h"
 
-@interface SetViewController : UIViewController
+@interface SetViewController : ViewController
 
 @end

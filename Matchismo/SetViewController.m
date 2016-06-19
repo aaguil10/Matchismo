@@ -7,18 +7,16 @@
 //
 
 #import "SetViewController.h"
-#import "CardMatchingGame.h"
+#import "SetCardDeck.h"
 
 @interface SetViewController ()
-@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *cardButtons;
-@property (strong, nonatomic) CardMatchingGame *game;
+
 @end
 
 @implementation SetViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do view setup here.
+- (Deck *)createDeck{
+    return [[SetCardDeck alloc] init];
 }
 
 @end
