@@ -12,6 +12,46 @@
 
 - (int)match:(NSArray *)otherCards{
     int score = 0;
+    int revert = score;
+    for(int i = 0; i < [otherCards count]; i++){
+        SetCard *othercard = [otherCards objectAtIndex:i];
+        if(self.color == othercard.color){
+            score++;
+        }else{
+            score = revert;
+            break;
+        }
+    }
+    revert = score;
+    for(int i = 0; i < [otherCards count]; i++){
+        SetCard *othercard = [otherCards objectAtIndex:i];
+        if(self.shading == othercard.shading){
+            score++;
+        }else{
+            score = revert;
+            break;
+        }
+    }
+    revert = score;
+    for(int i = 0; i < [otherCards count]; i++){
+        SetCard *othercard = [otherCards objectAtIndex:i];
+        if(self.shape == othercard.shape){
+            score++;
+        }else{
+            score = revert;
+            break;
+        }
+    }
+    revert = score;
+    for(int i = 0; i < [otherCards count]; i++){
+        SetCard *othercard = [otherCards objectAtIndex:i];
+        if(self.number == othercard.number){
+            score++;
+        }else{
+            score = revert;
+            break;
+        }
+    }
     return score;
 }
 

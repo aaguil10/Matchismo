@@ -60,6 +60,7 @@ static const int COST_TO_CHOOSE = 1;
                 }
             }
             if(self.gameMode){ //3 card game mode logic
+                NSLog(@"In the 3 game satus!!!");
                 if([chossenCards count] == 2){
                     Card *card1 = chossenCards[0];
                     Card *card2 = chossenCards[1];
