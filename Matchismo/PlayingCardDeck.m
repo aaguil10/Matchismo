@@ -24,6 +24,7 @@
             }
         }
     }
+    self.typeOfGame = NO;
     return self;
 }
 

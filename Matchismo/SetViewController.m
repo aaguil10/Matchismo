@@ -43,7 +43,6 @@
     for(int i = 0; i < card.number; i++){
         [result appendString:[SetCard validShapes][card.shape]];
     }
-    NSLog(@"num: %d shape: %d", card.number, card.shape);
     
     NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:result];
     [title setAttributes:@{NSStrokeWidthAttributeName: [self returnStrokeWidth:card],

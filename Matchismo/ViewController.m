@@ -13,8 +13,8 @@
 //@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UIButton *redealButton;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *gameModeSegmentControl;
-@property (weak, nonatomic) IBOutlet UILabel *gameStatusLabel;
+//@property (weak, nonatomic) IBOutlet UISegmentedControl *gameModeSegmentControl;
+//@property (weak, nonatomic) IBOutlet UILabel *gameStatusLabel;
 
 @end
 
@@ -41,21 +41,21 @@
     int chosenButtonIndex = (int)[self.cardButtons indexOfObject:sender];
     [self.game chooseCardAtIndex:chosenButtonIndex];
     [self updateUI];
-    [self enableGameMode:NO];
+    //[self enableGameMode:NO];
 }
 
 - (IBAction)touchRedealButton:(id)sender {
     //self.scoreLabel.text = @"Re-dealing cards!";
     [self.game redealCards:12 withDeck:[self createDeck]];
-    [self enableGameMode:YES];
+    //[self enableGameMode:YES];
     [self updateUI];
 }
 
-- (IBAction)touchGameModeSement:(id)sender {
-    BOOL mode = self.gameModeSegmentControl.selectedSegmentIndex;
-    [self.game setGameMode: !mode];
-    [self updateUI];
-}
+//- (IBAction)touchGameModeSement:(id)sender {
+//    BOOL mode = self.gameModeSegmentControl.selectedSegmentIndex;
+//    [self.game setGameMode: !mode];
+//    [self updateUI];
+//}
 
 - (void)updateUI{
     for(UIButton *cardButton in self.cardButtons){
@@ -69,15 +69,15 @@
             NSLog(@"Exception: %@", e);
         }
     }
-    self.gameStatusLabel.text = @"";
-    self.gameStatusLabel.text = self.game.gameStatus;
+//    self.gameStatusLabel.text = @"";
+//    self.gameStatusLabel.text = self.game.gameStatus;
 }
 
 
--(void) enableGameMode: (BOOL) enable{
-    [_gameModeSegmentControl setEnabled:enable forSegmentAtIndex:0];
-    [_gameModeSegmentControl setEnabled:enable forSegmentAtIndex:1];
-}
+//-(void) enableGameMode: (BOOL) enable{
+//    [_gameModeSegmentControl setEnabled:enable forSegmentAtIndex:0];
+//    [_gameModeSegmentControl setEnabled:enable forSegmentAtIndex:1];
+//}
 
 
 

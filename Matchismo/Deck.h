@@ -11,6 +11,8 @@
 
 @interface Deck : NSObject
 
+@property (nonatomic) BOOL typeOfGame; //2 card game or 3 card game?
+
 - (void)addCard:(Card *)card atTop:(BOOL)atTop;
 - (void)addCard:(Card *)card;
 

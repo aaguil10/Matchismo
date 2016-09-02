@@ -9,6 +9,7 @@
         <scene sceneID="Xuc-4K-Z1h">
             <objects>
                 <tabBarController id="E6x-Yd-bWQ" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="VDh-Yo-rbB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -164,24 +165,6 @@
                                     <action selector="touchRedealButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gXG-dn-M15"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6CP-mg-cMv">
-                                <rect key="frame" x="46" y="402" width="228" height="29"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <segments>
-                                    <segment title="Two Card Game"/>
-                                    <segment title="Three Card Game"/>
-                                </segments>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="touchGameModeSement:" destination="BYZ-38-t0r" eventType="valueChanged" id="bIw-bn-YRh"/>
-                                </connections>
-                            </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bf-aP-BBI">
-                                <rect key="frame" x="14" y="438" width="292" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSy-aD-R6p">
                                 <rect key="frame" x="8" y="467" width="305" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -194,8 +177,6 @@
                     <tabBarItem key="tabBarItem" title="Match Game" id="yKW-Cl-Ka6"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="gameModeSegmentControl" destination="6CP-mg-cMv" id="Er6-vz-oWd"/>
-                        <outlet property="gameStatusLabel" destination="6bf-aP-BBI" id="ltV-nC-DgS"/>
                         <outlet property="redealButton" destination="r9I-ET-uW7" id="LR6-W1-9SN"/>
                         <outlet property="scoreLabel" destination="aSy-aD-R6p" id="EXo-g4-JEN"/>
                         <outletCollection property="cardButtons" destination="DMR-i4-xHI" id="Ic3-p6-hfo"/>

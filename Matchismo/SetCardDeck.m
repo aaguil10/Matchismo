@@ -30,6 +30,7 @@
             }
         }
     }
+    self.typeOfGame = YES;
     return self;
 }
 

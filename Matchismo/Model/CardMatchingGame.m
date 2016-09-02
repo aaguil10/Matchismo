@@ -23,7 +23,7 @@
 
 - (instancetype)initWithCardCount:(NSInteger)count usingDeck:(Deck *)deck{
     self = [super init];
-    self.gameMode = NO;
+    self.gameMode = deck.typeOfGame;
     
     if(self){
         for(int i = 0; i < count; i++){
@@ -78,6 +78,7 @@ static const int COST_TO_CHOOSE = 1;
                     }
                 }
             }else{  //2 Card game mode logic
+                NSLog(@"In the 2 game satus!!!");
                 if([chossenCards count] == 1){
                     Card *otherCard = chossenCards[0];
                     if(otherCard.isChossen && !otherCard.isMatched){
@@ -119,16 +120,16 @@ static const int COST_TO_CHOOSE = 1;
 
 
 
-- (void) setGameMode:(BOOL)gmValue{
-    if(gmValue){
-        _gameMode = NO;
-        _gameStatus = @"2 card mode!";
-    }else{
-        _gameMode = YES;
-        _gameStatus = @"3 card mode!";
-    }
-    
-}
+//- (void) setGameMode:(BOOL)gmValue{
+//    if(gmValue){
+//        _gameMode = NO;
+//        _gameStatus = @"2 card mode!";
+//    }else{
+//        _gameMode = YES;
+//        _gameStatus = @"3 card mode!";
+//    }
+//    
+//}
 
 
 
