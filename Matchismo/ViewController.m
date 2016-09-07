@@ -23,7 +23,6 @@
 
 - (CardMatchingGame *) game{
     if(!_game){
-        NSLog(@"cardButton count: %lu", (unsigned long)[self.cardButtons count]);
         _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                   usingDeck:[self createDeck]];
     }

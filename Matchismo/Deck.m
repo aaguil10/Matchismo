@@ -29,7 +29,6 @@
 
 -(void)addCard:(Card *)card{
     [self addCard:card atTop:NO];
-    NSLog(@"Number of cards in deck: %lu", (unsigned long)[self.cards count]);
 }
 
 - (Card *)drawRandomCard{

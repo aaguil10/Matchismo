@@ -42,7 +42,6 @@
 - (Card *) cardAtIndex:(NSUInteger)index{
     if(index<[self.cards count]){
         Card *myCard = self.cards[index];
-        //myCard.inPlay = YES;
         return myCard;
     }
     return nil;
